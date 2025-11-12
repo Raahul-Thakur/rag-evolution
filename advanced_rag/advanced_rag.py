@@ -90,7 +90,6 @@ def order_and_summarize(docs, max_chars=2500):
     """Order chunks and summarize them while maintaining physical coherence."""
     docs = sorted(docs, key=lambda d: (d.metadata.get("page", 9999), d.metadata.get("start_index", 9999)))
 
-    # Merge same-page chunks for better continuity
     merged = []
     current, cur_page = "", None
     for d in docs:
@@ -108,7 +107,6 @@ def order_and_summarize(docs, max_chars=2500):
     if len(full_text) > max_chars:
         full_text = full_text[:max_chars]
 
-    # Use semantic summarization (rather than first-sentence truncation)
     return summarize_context(full_text)
 
 def hybrid_retrieve(query, alpha=0.7, k_dense=10):
@@ -148,7 +146,6 @@ def real_rag(query, *, page_range=None, must_contain=None, k_dense=10, k_final=6
     merged = hybrid_retrieve(q_rew, alpha=0.7, k_dense=k_dense)
     merged = metadata_filter(merged, page_range=page_range, must_contain=must_contain)
 
-    # Cross-encoder reranking
     scored = [(d, cross_encoder_score(q_rew, d.page_content[:512])) for d in merged]
     scored.sort(key=lambda x: x[1], reverse=True)
     topk = [d for d, s in scored[:k_final]]
