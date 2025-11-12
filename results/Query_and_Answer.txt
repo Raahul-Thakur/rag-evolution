@@ -1,0 +1,16 @@
+1. For Naive RAG
+Query = "What physical processes does MESA include to model stellar interiors"
+Answer - systematic study of the effect of mesh and time-step refinement on simulation accuracy ( 6.7), specific module comparisons (5.5), and stellar evolution code comparisons presented in this section
+
+2. For Advanced RAG
+Query = "Explain how MESA handles energy generation through nuclear reaction networks, and how the treatment differs for massive vs. low-mass stars."
+Answer - MESA star solves the fully coupled structure and composition equations simultaneously. It uses adaptive mesh refinement and sophisticated timestep controls, and supports shared-memory parallelism 
+based on OpenMP. State-of-the-art modules provide equation of state, opacity, nuclear reaction rates, element diffusion data, and atmosphere boundary conditions. Each module is constructed as a separate 
+Fortran 95 li- of the new system started to emerge, it became clear that the parts would be of greater value than the whole if they were carefully structured for independent use. MESA star approaches stellar 
+physics, structure, and evolution with modern, sophisticated numerical methods and updated physics that give
+
+3. For Agentic RAG
+query = "Summarize how MESA’s modular design allows integration of new physical modules (e.g., rotation or diffusion) and propose how an agent could extend it to model accreting white dwarfs."
+Answer - Each MESA module is responsible for a different aspect of numerics or physics required to construct computational models for stellar astrophysics. Each has a similar organization: a public interface, 
+a private implementation, a makefile to create a library, and a test suite for verification. Each module includes an installation script that builds the library, tests it, and, if the test succeeds, 
+exports it to the MESA libraries directory.
