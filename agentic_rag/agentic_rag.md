@@ -194,8 +194,3 @@ Each step in the workflow is wrapped as a modular **Tool** subclass compatible w
 | Reflection    | `SelfReflectTool`                      | Quality control           |
 | Synthesis     | `google/flan-t5-xl`                    | Final answer generation   |
 | Memory        | JSON episodic store                    | Query recall              |
-
----
-
-**Author:** Rahul Thakur
-**Purpose:** Explainable documentation for the Agentic RAG pipeline built using LangChain, SmolAgents, HuggingFace, and FAISS.
