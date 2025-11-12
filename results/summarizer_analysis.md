@@ -1,6 +1,6 @@
 # RAG Evolution Summary
 
-This document summarizes the comparison and performance progression from **Naive RAG → Real RAG → Agentic RAG**.
+This document summarizes the comparison and performance progression from **Naive RAG → Advanced RAG → Agentic RAG**.
 
 ---
 
@@ -9,7 +9,7 @@ This document summarizes the comparison and performance progression from **Naive
 | Stage           | Core Concept                                                | Key Strength                                                | Primary Limitation                                     |
 | --------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
 | **Naive RAG**   | Embeddings-only retrieval                                   | Fast & simple                                               | Irrelevant retrievals, no reasoning or context control |
-| **Real RAG v2** | Hybrid retrieval (BM25 + FAISS) + reranking + summarization | Technically accurate and factually grounded                 | Misses query intent, limited reasoning awareness       |
+| **Advanced RAG** | Hybrid retrieval (BM25 + FAISS) + reranking + summarization | Technically accurate and factually grounded                 | Misses query intent, limited reasoning awareness       |
 | **Agentic RAG** | Intent-routed, multi-retriever, self-reflective system      | Intent understanding, modular reasoning, adaptive retrieval | Computationally heavier, more complex setup            |
 
 ---
@@ -19,7 +19,7 @@ This document summarizes the comparison and performance progression from **Naive
 | System          | Query                                                                                                                                                                                    | Context Type                                                                                           |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | **Naive RAG**   | “What physical processes does MESA include to model stellar interiors?”                                                                                                                  | Retrieved general validation and simulation accuracy text, not physical processes                      |
-| **Real RAG v2** | “Explain how MESA handles energy generation through nuclear reaction networks, and how the treatment differs for massive vs. low-mass stars.”                                            | Retrieved sections describing numerical structure and general module interactions                      |
+| **Advanced RAG** | “Explain how MESA handles energy generation through nuclear reaction networks, and how the treatment differs for massive vs. low-mass stars.”                                            | Retrieved sections describing numerical structure and general module interactions                      |
 | **Agentic RAG** | “Summarize how MESA’s modular design allows integration of new physical modules (e.g., rotation or diffusion) and propose how an agent could extend it to model accreting white dwarfs.” | Retrieved and composed module-organization text showing how MESA builds, tests, and exports components |
 
 ---
@@ -29,14 +29,14 @@ This document summarizes the comparison and performance progression from **Naive
 | System          | Summary of Final Answer                                                                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Naive RAG**   | Off-topic; discussed timestep refinement and simulation accuracy instead of physical processes.                                                                        |
-| **Real RAG v2** | Accurate but misfocused; described MESA’s overall architecture (equations, mesh refinement, modules) but not the nuclear-network mechanism.                            |
+| **Advanced RAG** | Accurate but misfocused; described MESA’s overall architecture (equations, mesh refinement, modules) but not the nuclear-network mechanism.                            |
 | **Agentic RAG** | Clear, precise, and domain-aligned; explained how each MESA module operates independently, includes test suites and build processes, and contributes to extensibility. |
 
 ---
 
 ## 4. Comparative Evaluation
 
-| Criterion           | Naive RAG   | Real RAG v2          | Agentic RAG                             |
+| Criterion           | Naive RAG   | Advanced RAG         | Agentic RAG                             |
 | ------------------- | ----------- | -------------------- | --------------------------------------- |
 | Retrieval Relevance | Off-topic   | Focused              | Highly targeted                      |
 | Context Composition | Raw chunks  | Ordered + summarized | Dynamically composed & verified         |
@@ -51,7 +51,7 @@ This document summarizes the comparison and performance progression from **Naive
 ## 5. Key Insights
 
 * **Naive RAG** retrieves by surface-level similarity → irrelevant responses.
-* **Real RAG** brings structure (reranking + summarization) but can still misinterpret *why* a passage is relevant.
+* **Advanced RAG** brings structure (reranking + summarization) but can still misinterpret *why* a passage is relevant.
 * **Agentic RAG** adds meta-level reasoning — decomposes queries, routes intents, verifies context quality, and recalls prior episodes for context continuity.
 
 ---
@@ -61,14 +61,14 @@ This document summarizes the comparison and performance progression from **Naive
 | Rank | System          | Verdict                                                                                                                     |
 | ---- | --------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 🥉   | **Naive RAG**   | Basic prototype for demonstrations; fails on semantic understanding.                                                        |
-| 🥈   | **Real RAG v2** | Production-level baseline; accurate and stable, but limited in contextual reasoning.                                        |
+| 🥈   | **Advanced RAG** | Production-level baseline; accurate and stable, but limited in contextual reasoning.                                        |
 | 🥇   | **Agentic RAG** | Intelligent retrieval reasoning; understands query intent, self-reflects, and generates precise, domain-faithful responses. |
 
 ---
 
 ## 7. Summary Table — RAG Evolution in One View
 
-| Feature                 | Naive RAG          | Real RAG                  | Agentic RAG                           |
+| Feature                 | Naive RAG          | Adcanced RAG                  | Agentic RAG                           |
 | ----------------------- | ------------------ | ------------------------- | ------------------------------------- |
 | **Retrieval**           | Pure embeddings    | Hybrid (BM25 + Vector)    | Dynamic multi-retriever               |
 | **Ranking**             | None               | Cross-encoder reranker    | Adaptive reranking (per intent)       |
@@ -86,4 +86,4 @@ This document summarizes the comparison and performance progression from **Naive
 > **Agentic RAG is not just a retrieval system — it’s a reasoning layer on top of retrieval.**
 > It interprets the question’s intent, builds a query plan, composes context adaptively, and validates its own retrieval.
 
-While **Real RAG v2** represents the peak of *structured but static* retrieval, **Agentic RAG** is the beginning of *self-directed retrieval reasoning* — where the system not only finds information but also understands *why* that information matters.
+While **Advanced RAG** represents the peak of *structured but static* retrieval, **Agentic RAG** is the beginning of *self-directed retrieval reasoning* — where the system not only finds information but also understands *why* that information matters.
